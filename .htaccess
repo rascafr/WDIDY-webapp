@@ -1,0 +1,7 @@
+RewriteEngine on
+
+#API Redirects
+#api/TYPE/PHPFILE
+#api/request/TYPE/PHPFILE.php
+RewriteRule api/([a-z]+)/([a-z_]+)$ /francoisle\.fr/wdidy/api/request/$1/$2\.php
+

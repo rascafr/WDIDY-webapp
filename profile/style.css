@@ -1,0 +1,470 @@
+@font-face{
+	font-family: autor;
+	src: url(../fonts/autoradiographicrg.ttf);
+}
+
+@font-face{
+	font-family: calibri;
+	src: url(../fonts/CALIBRIL.TTF);
+}
+
+@font-face{
+	font-family: calibrii;
+	src: url(../fonts/CALIBRI.TTF);
+}
+
+#wrapper {
+	position:relative;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+    height:100%;
+}
+
+#disp{
+	position: absolute; /* or absolute */
+	width: 100%;
+	height: 100%;
+	background:rgba(0,0,0,0.7);
+	z-index:2;
+	display:none;
+}
+
+.menu-im {
+	position: absolute;
+	padding-left: 10px;
+	padding-top: 5px;
+	font-family: calibri;
+	color:white;
+	height:30px;
+	background:rgba(0,0,0,0.9);
+    z-index:2000;	
+    left:0;
+    right:0;
+    bottom:0;
+}
+
+.menu-im:hover{
+	cursor: pointer;
+	cursor: hand;	
+}
+
+.menu-close{
+	position:absolute;
+	padding-right: 5px;
+	padding-left:5px;
+	padding-bottom: 5px;
+	font-family: calibri;
+	color:white;
+	top:0px;
+	right:0px;
+	background:rgba(0,0,0,0.7);
+}
+
+.menu-close:hover{
+	cursor: pointer;
+	cursor: hand;		
+}
+
+#trackimg{
+	position:absolute;
+	margin-top: 10px;
+	margin-bottom:10px;
+	background-size: cover;
+    top: 50%;
+    left: 50%;
+    z-index:3;	
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+body{
+	background: white;
+	margin: 0;
+	padding: 0
+}
+
+.header{  
+	position:relative;
+	width: 100%;
+	height: 60px;
+	background-color: #E74C3C;
+	box-shadow: 0px 4px 4px #888888;
+}
+
+
+div.name{
+	display: inline;
+	position: absolute;
+	top: 15px;
+	left: 20px;
+	font-family: autor;
+	font-size: 30px;
+	color: white;
+}
+
+
+div.border-right{
+	position: absolute;
+	width: 290px;
+	top:60px;
+	bottom:0px;
+	left: 0px;
+	background-color: rgb(249,249,249);
+	box-shadow: 0px 0px 10px #888888;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+div.border-txt{
+	position: relative;
+	font-family: calibri;
+	font-size: 12px;
+	color: black;
+	margin-left: 20px;
+	top: 0px;
+	width:200px;
+}
+
+#tit{
+	position: absolute;
+	top:15px;
+	font-family: calibri;
+	font-size: 25px;
+	color: black;
+}
+
+div.txt{
+	position:absolute;
+	top: 45px;
+	padding-left:20px;
+	padding-bottom:20px;
+	left:-20px;
+	width: 270px;
+	font-family: calibri;	
+	font-size: 22px;
+	color: rgb(89,89,89);
+	border-bottom: dotted;
+	border-color: #888888;
+    border-width: 2px;
+}
+
+div.title{
+	display: block;
+	position: absolute ;
+	top: 15px;
+	left: 120px;
+	margin-right:120px;
+	font-family: autor;
+	font-size: 30px;
+	color: white;
+}
+
+div.user{
+	display: inline;
+	position: absolute;
+	top: 20px;
+	right: 100px;
+	font-family: autor;
+	font-size: 20px;
+	color: white;
+}
+  
+img.timeline{
+	position: absolute;
+	top: 250px;
+	left: 30px;
+}
+
+div.crop{
+	position:absolute;
+	top:8px; 
+	right:40px;
+	height:40px;
+	width:40px;
+	background-size: cover;
+	border-style: solid;
+	border-width: 2px;
+	border-color: white;
+	border-radius: 50%;
+}
+
+div.photos{
+	position:relative;
+	float:left;
+	height:100px;
+	width:100px;
+	background-size: cover;
+	margin-right:17px;
+	margin-bottom:15px;
+}
+
+.photos:hover{
+	cursor: pointer;
+	cursor: hand;
+}
+
+.crop:hover{
+	cursor: pointer;
+	cursor: hand;
+}
+
+#legende{
+	position: absolute;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left:30px;
+	padding-right:0px;
+	margin-bottom: 0px;
+	width: 260px;
+	top:300px;
+	bottom:0px;
+	font-family: calibri;
+	font-size: 20px;
+	border-top: dotted;
+	border-color: #888888;
+    border-width: 2px;
+}
+
+div.check{
+	position: absolute;
+	top:207px;
+	left:12px;
+	font-family: calibri;
+}
+
+div.check2{
+	position: absolute;
+	top:247px;
+	left:12px;
+	font-family: calibri;
+}
+
+#map{
+	position: absolute; 
+	top:0px;
+	bottom:100px;
+	right:0px;
+	width: 100%;
+	height: 100%;
+}
+
+/* Left track resume display */
+.resume_address {
+	padding-top: -0.5em;
+}
+
+.resume_point {
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	border: 0.25em solid #E74C3C;
+	display: inline-block;
+}
+
+.resume_addressText {
+	display: inline-block;
+	position: absolute;
+	margin-left: 0.5em;
+	padding: 0;
+}
+
+.resume_detail {
+	color: #777;
+}
+
+.resume_linkLine {
+	background: #E74C3C;
+	width: 0.25em;
+	height: 3em;
+	margin-left: 0.625em;
+	padding: 0;
+	display: inline-block;
+}
+
+.resume_detailText {
+	display: inline-block;
+	position: absolute;
+	margin-left: 1.125em;
+	padding: 0;
+}
+
+/* Menu profil */
+#menuProfil {
+	display: none;
+	position: absolute; 
+	top: 70px; 
+	width:200px; 
+	height:305px; 
+	right:40px;
+	background:rgb(249,249,249); 
+	box-shadow: 0px 4px 4px #888888;
+	padding:0;
+	border-radius: 5px;
+}
+
+div.case{
+	display: inline-block; 
+	position: relative; 
+	font-family: calibrii;
+	font-size: 20px;
+	width: 180px;
+	height:40px;
+	left:-40px;
+	top:-16px;
+	padding-left:20px;
+	padding-top:10px;
+	border-bottom: 1px solid #DBDBDB;
+	color: rgb(89,89,89);
+}
+
+#bottom{
+	border-bottom: 0px groove #888;
+}
+
+#top:hover{
+	background-color: #E74C3C;
+	color: rgb(255,255,255);
+	border-radius: 5px 5px 0px 0px;
+}
+
+#norm:hover{
+	background-color: #E74C3C;
+	color: rgb(255,255,255);	
+}
+
+#bottom:hover{
+	background-color: #E74C3C;
+	color: rgb(255,255,255);
+	border-radius: 0px 0px 5px 5px;
+}
+
+#map-canvas {
+	margin: 0;
+	padding: 0;
+	width: 400px;
+	max-width: none;
+	width: auto;
+}
+
+#map-canvas img {
+	max-width: none !important;
+	width: 400px;
+}
+.gm-style-iw {
+	width: 400px !important;
+	height: auto !important;
+	top: 15px !important;
+	left: 0px !important;
+	background-color: transparent;
+	box-shadow: none;
+	border-radius: none;
+	box-shadow: 0px 2px 2px 2px #888888;
+	border-radius: 10px 0px 10px 2px;
+}
+
+#iw-container {
+
+}
+
+#iw-container .iw-title {
+	width:auto;
+	font-family: calibrii;
+	text-align: left;
+	font-size: 25px;
+	font-weight: 400;
+	padding: 10px;
+	background-color: #EC8074;
+	color: white;
+	margin: 0;
+	border-radius: 10px 0px 0 0;
+}
+.iw-content {
+	width:auto;
+	/*min-width: 400px;*/
+	background-color: rgb(249,249,249);
+	max-height: 100px;
+	font-size: 13px;
+	font-weight: 400; 
+	padding-left: 15px;
+	padding-right:15px;
+	padding-bottom:15px;
+	padding-top:15px;
+	overflow-y:scroll;
+}
+
+.iw-subTitle {
+	position: relative;
+	font-size: 16px;
+	font-weight: 700;
+	bottom:5px;
+	left:15px;
+}
+
+.tracklist{
+	position: relative;
+	display: block;
+	bottom:15px;
+	margin-top: 30px;
+	margin-left:320px;
+	margin-right:40px;
+	height:200px;
+	max-width: 610px;
+	border-radius:5px;
+	box-shadow: 5px 5px 10px #888888;
+}
+
+.tracktitle{
+	position: relative;
+	height:40px;
+	border-radius:5px 5px 0px 0px;
+	background-color: #EC8074;
+}
+
+.tracktitledata{
+	position: relative;
+	height:40px;
+	font-family: calibri;
+	font-size: 20px;
+	color:white;
+	padding-left:10px;
+	padding-top: 5px;
+}
+
+.trackcontainer{
+	padding-top: 10px;
+	padding-bottom:20px;
+	position: absolute;
+	top: 60px;
+	left:0px;
+	right:0px;
+	bottom : 0px;
+	overflow-y:scroll;
+	z-index: -1;
+}
+
+.button{
+	position: relative;
+	height: 20px;
+	width:70px;
+	margin-right:5px;
+	margin-left: auto;
+	margin-top:128px;
+	background-color: #474036;
+	border-radius: 3px;
+	border: 1px solid #474036;
+	font-family: autor;
+	font-size: 15px;
+	color: white;
+	text-align: center;
+}
+
+.button:hover{
+	cursor: pointer;
+	cursor: hand;	
+}
+
+
+.address {
+	color: #8d7475;
+}
