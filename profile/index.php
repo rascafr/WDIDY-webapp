@@ -27,6 +27,17 @@
             }
         }
 
+        function toggleMsg() {
+
+            e = document.getElementById('chatroom');
+
+            if (e.style.display == 'block') {
+                e.style.display = 'none';
+            } else {
+                e.style.display = 'block';
+            }
+        }
+
         (function ($) {
             $(window).load(function () {
                 $(".content").mCustomScrollbar();
@@ -437,6 +448,11 @@ $lon = $data['lon'];
     <div class="pref"></div>
 
     <?php include("slider/slider.php") ?>
+
+    <div id="chatroom">
+    	<div id="room"></div>
+		<input class="mbox" id="login" type="text" name="msg" placeholder=" Ecrivez ici" />
+    </div>
 
     <!--div id="menuProfil" style="position: absolute; display:none; top: 70px; right: 40px; width:200px; height:355px; background:#fff; box-shadow: 0px 4px 4px #888888;border-radius: 5px;"-->
     <div id="menuProfil">

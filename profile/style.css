@@ -403,15 +403,14 @@ div.case{
 
 .tracklist{
 	position: relative;
-	display: block;
-	bottom:15px;
-	margin-top: 30px;
-	margin-left:320px;
-	margin-right:40px;
-	height:200px;
-	max-width: 610px;
+	top:15px;
+	left: 330px;
+	width: 800px;
+	height:170px;
 	border-radius:5px;
-	box-shadow: 5px 5px 10px #888888;
+	//background: rgb(249,249,249);
+	margin-top:20px;
+	border:solid 1px rgb(89,89,89);
 }
 
 .tracktitle{
@@ -421,14 +420,43 @@ div.case{
 	background-color: #EC8074;
 }
 
+.trackim{
+	position: absolute;
+	background:red;
+	width:140px;
+	height:140px;
+	top:15px;
+	left:15px;
+	z-index: 2;
+	background-image: url("../picts/guy.jpg");
+}
+
 .tracktitledata{
-	position: relative;
-	height:40px;
+	position: absolute;
 	font-family: calibri;
-	font-size: 20px;
-	color:white;
-	padding-left:10px;
-	padding-top: 5px;
+	font-size: 15px;
+	color:black;
+	left:212px;
+	top:37px;
+}
+
+.stattrack{
+	position: absolute;
+	left:165px;
+	bottom:15px;
+	width:620px;
+	height:90px;
+	z-index: 4;
+}
+
+.tracktuname{
+	position: absolute;
+	font-family: calibri;
+	font-size: 15px;
+	color:black;
+	left:212px;
+	top:17px;	
+	color: rgb(89,89,89);
 }
 
 .trackcontainer{
@@ -443,28 +471,85 @@ div.case{
 	z-index: -1;
 }
 
+.views{
+	position:absolute;
+	top: 30px;
+	right:15px;
+	width:50px;
+	height:20px;
+	border:solid 1px rgb(89,89,89);
+	border-radius: 5px;
+	font-family: calibri;
+	color:rgb(89,89,89);
+	text-align: right;
+	padding-right: 5px;
+}
+
+.shots{
+	position:absolute;
+	top: 30px;
+	right:85px;
+	width:50px;
+	height:20px;
+	border:solid 1px rgb(89,89,89);
+	border-radius: 5px;
+	font-family: calibri;
+	color:rgb(89,89,89);
+	text-align: right;
+	padding-right: 5px;
+}
+
 .button{
-	position: relative;
-	height: 20px;
-	width:70px;
-	margin-right:5px;
-	margin-left: auto;
-	margin-top:128px;
-	background-color: #474036;
-	border-radius: 3px;
-	border: 1px solid #474036;
-	font-family: autor;
-	font-size: 15px;
-	color: white;
+	position: absolute;
+	width:40px;
+	height:40px;
+	top:15px;
+	left:165px;
+	font-family: calibrii;
+	font-size: 20px;
+	color:white;
+	background-color: #E74C3C;
+	border-radius: 50%;
 	text-align: center;
+	line-height: 38px;
 }
 
 .button:hover{
 	cursor: pointer;
-	cursor: hand;	
+	cursor: hand;
 }
 
 
 .address {
 	color: #dc5a59; /* moche */
 }
+
+#chatroom{
+	display: none;
+	position: absolute;
+	right:100px;
+	bottom:0px;
+	width:200px;
+	height:300px;
+	background-color: #EC8074;
+}
+
+#room{
+	position: absolute;
+	right:1px;
+	bottom:1px;
+	width:198px;
+	height:264px;
+	background-color: rgb(249,249,249);
+}
+
+.mbox{
+	position: absolute;
+	right:0px;
+	bottom:0px;
+	width:200px;
+	height:30px;
+	border:solid #EC8074 1px;
+	border-bottom: none;
+}
+

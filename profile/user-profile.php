@@ -78,20 +78,22 @@
 					}
 
 					echo('
-						<div class = "tracklist" style = "background-image:url(\'http://maps.googleapis.com/maps/api/staticmap?center=Albany,+NY&zoom=7&scale=false&size=700x200&maptype=roadmap&format=png&visual_refresh=true\')">
-								<div class = "tracktitle">
-									<div class="tracktitledata">'
-										.$result['name'].
-									'</div>
-									<div class = "button" onClick = "gototrack('.$result['IDtrack'].')">
-										Show track
-									</div>
+						<div class = "tracklist">
+								<div class="tracktuname">'
+									.$result['firstname'].
+								'</div>
+								<div class="tracktitledata">'
+									.$result['name'].
+								'</div>
+								<div class = "button" onClick = "gototrack('.$result['IDtrack'].')">
+									GO
 								</div>
-						<div class = "trackoptions">
-							Track options
+								<div class = "views">1578</div>
+								<div class = "shots">75</div>
+								<div class = "trackim"></div>
+								<div class = "stattrack" style = "background-image:url(\'http://maps.googleapis.com/maps/api/staticmap?center=Albany,+NY&zoom=7&scale=false&size=700x200&maptype=roadmap&format=png&visual_refresh=true\')"></div>
 						</div>
-						</div>
-							');
+					');
 
 				}
 	?>
