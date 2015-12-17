@@ -2,7 +2,8 @@
     // Initialisation session
     session_start();
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="fr" id="wdidy">
 <head>
     <title>WDIDY</title>
     <link rel="stylesheet" href="style.css"/>

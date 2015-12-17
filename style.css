@@ -44,7 +44,7 @@ div.subtitle{
 div.name{
 	display: inline;
 	position: absolute;
-	top: 15px;
+	top: 12px;
 	left: 50px;
 	font-family: autor;
 	font-size: 30px;
@@ -53,7 +53,7 @@ div.name{
 
 div.center{
 	position: absolute;
-	top: 17px;
+	top: 13px;
 	right: 150px;
 }
 
@@ -66,7 +66,7 @@ input.tb{
 }
 
 input.tb1{
-	width:150px;
+	width:147px;
 	height:30px;
 	border-radius:3px;
 	border: 1px solid #DBDBDB;
@@ -87,7 +87,7 @@ input.sub{
 	right: 0px;
 	top: 3px;
 	width:40px;
-	height:25px;
+	height:29px;
 	background-color: #474036;
 	border-radius:0px 3px 3px 0px;
 	border: 1px solid #474036;
@@ -181,9 +181,9 @@ div.pic{
 
 .commit_history_box {
 	position: fixed;
-	bottom: 10%;
+	top: 81%;
 	left: 75%;
-	transform: translate(-50%, +50%);
+	transform: translate(-50%, 0%);
 	background-color: #2d2d2b;
 	width: 600px;
 	padding: 7px 15px 7px 15px;
