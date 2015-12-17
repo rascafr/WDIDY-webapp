@@ -116,6 +116,17 @@ div.border-right{
 	margin-bottom: 0px;
 }
 
+div.border-left{
+	position: absolute;
+	width: 290px;
+	top:60px;
+	bottom:0px;
+	left: 0px;
+	background-color: rgb(249,249,249);
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
 div.border-txt{
 	position: relative;
 	font-family: calibri;
@@ -317,6 +328,22 @@ div.case{
 	border-bottom: 1px solid #DBDBDB;
 	color: rgb(89,89,89);
 }
+/*
+li.case a:link {
+	color: #fff;
+	text-decoration: none;
+
+}
+
+li.case a:visited {
+	color: rgb(89,89,89);
+	text-decoration: none;
+}
+
+li.case a:hover {
+	color: #fff;
+	text-decoration: none;
+}*/
 
 #bottom{
 	border-bottom: 0px groove #888;
@@ -330,7 +357,7 @@ div.case{
 
 #norm:hover{
 	background-color: #E74C3C;
-	color: rgb(255,255,255);	
+	color: rgb(255,255,255);
 }
 
 #bottom:hover{
@@ -358,7 +385,6 @@ div.case{
 	left: 0px !important;
 	background-color: transparent;
 	box-shadow: none;
-	border-radius: none;
 	box-shadow: 0px 2px 2px 2px #888888;
 	border-radius: 10px 0px 10px 2px;
 }
@@ -385,11 +411,8 @@ div.case{
 	background-color: rgb(249,249,249);
 	max-height: 100px;
 	font-size: 13px;
-	font-weight: 400; 
-	padding-left: 15px;
-	padding-right:15px;
-	padding-bottom:15px;
-	padding-top:15px;
+	font-weight: 400;
+	padding: 15px;
 	overflow-y:scroll;
 }
 
@@ -403,14 +426,10 @@ div.case{
 
 .tracklist{
 	position: relative;
-	top:15px;
 	left: 330px;
 	width: 800px;
 	height:170px;
-	border-radius:5px;
-	//background: rgb(249,249,249);
 	margin-top:20px;
-	border:solid 1px rgb(89,89,89);
 }
 
 .tracktitle{
@@ -422,13 +441,13 @@ div.case{
 
 .trackim{
 	position: absolute;
-	background:red;
 	width:140px;
 	height:140px;
 	top:15px;
 	left:15px;
 	z-index: 2;
-	background-image: url("../picts/guy.jpg");
+	background: red url("../picts/guy.jpg");
+	border-radius: 10px 0px 0px 10px;
 }
 
 .tracktitledata{
@@ -447,6 +466,7 @@ div.case{
 	width:620px;
 	height:90px;
 	z-index: 4;
+	border-radius: 0px 0px 10px 0px;
 }
 
 .tracktuname{
@@ -460,15 +480,25 @@ div.case{
 }
 
 .trackcontainer{
-	padding-top: 10px;
 	padding-bottom:20px;
 	position: absolute;
-	top: 60px;
-	left:0px;
+	top: 133px;
+	left:100px;
 	right:0px;
 	bottom : 0px;
 	overflow-y:scroll;
 	z-index: -1;
+}
+
+.thetitle{
+	position: absolute;
+	left:335px;
+	top:70px;
+	font-family: calibri;
+	font-size: 50px;
+	color:black;
+	border-bottom: solid 1px #F2F2F2;
+	width:880px;
 }
 
 .views{
@@ -525,7 +555,6 @@ div.case{
 }
 
 #chatroom{
-	display: none;
 	position: absolute;
 	right:100px;
 	bottom:0px;

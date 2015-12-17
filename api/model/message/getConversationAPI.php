@@ -1,11 +1,12 @@
 <?php
 
 /**
- * Retrourne la liste des amis de l'utilisateur
+ * Retrourne la liste des messages pour une conversation entre deux personnes
  * @param $api_id : l'identifiant de l'API utilisée à 8 chiffres. Doit exister dans la BDD et être marqué comme actif.
  * @param $user_id : l'identifiant utilisateur. Le compte doit être activé.
+ * @param $friend_id : l'identifiant de l'ami de l'utilisateur. Le compte doit être activé.
  */
-function listFriendsAPI ($api_id, $user_id) {
+function getConversationAPI ($api_id, $user_id, $friend_id) {
 
     define("PATH", "/home/sites/francoisle.fr/public_html/wdidy/");
 
@@ -24,15 +25,14 @@ function listFriendsAPI ($api_id, $user_id) {
     if (checkAPIKey($api_id) == 1) {
 
         // Search for a valid user
-        if (checkUserKey($user_id) == 1) {
+        if (checkUserKey($user_id) == 1 AND checkUserKey($friend_id) == 1) {
 
-            // Search for all user's friends with accepted request
+            // Search for all messages between user and his friend
             $req = $bdd->prepare("
-                        SELECT friend.IDfriend,friend.date,user.firstname,user.lastname,user.city
-                        FROM `wdidy-friends` friend, `wdidy-user` user
-                        WHERE (friend.IDsender = ? AND user.IDuser = friend.IDfriend) AND friend.accepted = 1
-                        ORDER BY friend.date DESC");
-            $req->execute(array($user_id));
+                            SELECT * FROM `wdidy-messages` WHERE
+                            ((`IDsender` = ? AND `IDfriend` = ?) OR (`IDfriend` = ? AND `IDsender` = ?))
+                            ORDER BY `date` DESC");
+            $req->execute(array($user_id, $friend_id, $user_id, $friend_id));
             $data = $req->fetchAll();
             $req->closeCursor();
             $done = 1;

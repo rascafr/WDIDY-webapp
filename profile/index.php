@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Protect access from history is not logged to WDIDY
+if (!(isset($_SESSION['IDuser']) AND $_SESSION['IDuser'] != '')) {
+    header('Location: ../index.php');
+    exit();
+}
+?>
+
 <!--<!DOCTYPE html>-->
 <html>
 <head>
@@ -55,12 +65,6 @@ if (isset($_GET['trackID'])) {
     $trackID = $_GET['trackID'];
 } else {
     $trackID = 1; // default
-}
-
-if (isset($_GET['userID'])) {
-    $userGetID = $_GET['userID'];
-} else {
-    $userGetID = '251f563068e8636da4092490d6aeac94'; // default
 }
 
 // get first track point
@@ -457,12 +461,14 @@ $lon = $data['lon'];
     <!--div id="menuProfil" style="position: absolute; display:none; top: 70px; right: 40px; width:200px; height:355px; background:#fff; box-shadow: 0px 4px 4px #888888;border-radius: 5px;"-->
     <div id="menuProfil">
         <ul>
-            <div class="case" id="top">Mon profil</div>
+            <a href="user-profile.php">
+                <div class="case" id="top">Mon profil</div>
+            </a>
             <div class="case" id="norm">Mes soirées</div>
             <div class="case" id="norm">Confidentialité</div>
             <div class="case" id="norm">Abonnement</div>
             <div class="case" id="norm">Aide</div>
-            <a href="http://217.199.187.59/francoisle.fr/wdidy/index.php">
+            <a href="logout.php">
                 <div class="case" id="bottom">Déconnexion</div>
             </a>
         </ul>
