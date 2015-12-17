@@ -169,6 +169,7 @@
         include("header-log.php");
         include("log.php");
         include("body-log.php");
+        include("commit_history.php");
     } // Header log et message d'erreur si mauvais identifiant
     else if ($isConnect == 0) {
         include("header-log.php");
@@ -179,6 +180,7 @@
 										});
 							 </script>";
         include("body-log.php");
+        include("commit_history.php");
     } // Message connecté + contenu nécessaire si connecté
     else if ($isConnect == 1) {
         header('Location: profile/user-profile.php');

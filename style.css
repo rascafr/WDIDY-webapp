@@ -179,3 +179,28 @@ div.pic{
 	box-shadow: 0px 3px 15px #222;
 }
 
+.commit_history_box {
+	position: fixed;
+	bottom: 10%;
+	left: 75%;
+	transform: translate(-50%, +50%);
+	background-color: #2d2d2b;
+	width: 600px;
+	padding: 7px 15px 7px 15px;
+	border-radius: 5px;
+	box-shadow: 0px 3px 15px #1c1817;
+	font-family: monospace;
+}
+
+.commit_history_label {
+	color: #2d2d2b;
+	background-color: #ff8a7e;
+	font-weight: bold;
+}
+
+.commit_history_text {
+	color: whitesmoke;
+	font-weight: lighter;
+}
+
+
