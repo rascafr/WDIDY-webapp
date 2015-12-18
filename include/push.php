@@ -6,14 +6,20 @@
  * Time: 17:01
  */
 
-pushUser(
+/*pushUser(
     array(
         'd8kceidNjIc:APA91bHzU_H68QuBVe9fjGk9fFABGydq-5w0VlkMx8fliiYyHU3fS0G4wf_hZa0l-Nrc4-Alq3wqyO7_KoCg3ugz2BZTh9undg75AyHV6InpKSxfFPAbvgbCC4B0ZLx9gQje7S96XdHA'
     ),
     'Nouveau message',
     'Timé : ça te dit un berthom ? :D',
-    'intent.com.wdidy.app.push.conversation.new'
-);
+    array(
+        'app_action' => 'intent.com.wdidy.app.push.conversation.new',
+        'extra' => array(
+            'friend_id' => 'a98640811bd2d60205a1346b0f6c886c',
+            'friend_name' => 'Timé Kadel'
+        )
+    )
+);*/
 
 function pushUser ($IDdevices, $title, $content, $intent) {
 
@@ -55,5 +61,5 @@ function pushUser ($IDdevices, $title, $content, $intent) {
     // Execute post
     $result = curl_exec($ch);
 
-    echo $result;
+    return $result;
 }

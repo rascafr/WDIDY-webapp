@@ -21,6 +21,8 @@ function postMessageAPI ($api_id, $user_id, $friend_id, $text) {
     // Get other models
     include_once(PATH.'api/model/api/checkAPIKey.php');    // check API key
     include_once(PATH.'api/model/user/checkUserKey.php');  // check User ID
+    include_once(PATH.'include/push.php');                 // device push function
+    include_once(PATH.'api/model/push/sendPushAPI.php');   // user push API
 
     // Search for a valid API ID
     if (checkAPIKey($api_id) == 1) {
@@ -40,6 +42,27 @@ function postMessageAPI ($api_id, $user_id, $friend_id, $text) {
                 // TODO true datetime (with correct timestamp)
             ));
             $req->closeCursor();
+
+            // Get username TODO API for that action
+            $req = $bdd->prepare('SELECT * FROM `wdidy-user` WHERE (`IDuser` = ? AND `active` = 1)');
+            $req->execute(array($user_id));
+            $data = $req->fetch();
+            $req->closeCursor();
+            $userName = $data['firstname'].' '.$data['lastname']; // Friend → User ? Point of view of push / message receiver
+
+            // Prepare a notification for the receiver
+            $pushTitle = 'Nouveau message WDIDY';
+            $pushMessage = $data['firstname'].' : '.substr(base64_decode($text), 0, 250);
+            $pushIntent = array(
+                'app_action' => 'intent.com.wdidy.app.push.conversation.new',
+                'extra' => array(
+                    'friend_id' => $user_id,
+                    'friend_name' => $userName
+                )
+            );
+
+            // PUUUUUUSSSSSH
+            $cause = sendPushAPI($bdd, $friend_id, $pushTitle, $pushMessage, $pushIntent); // balek un petit peu de la réponse
 
             // Search for all messages between user and his friend
             $req = $bdd->prepare("
