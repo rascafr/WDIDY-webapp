@@ -184,7 +184,7 @@
         include("commit_history.php");
     } // Message connecté + contenu nécessaire si connecté
     else if ($isConnect == 1) {
-        header('Location: profile/user-profile.php');
+        header('Location: profile/index.php');
     }
 
     ?>

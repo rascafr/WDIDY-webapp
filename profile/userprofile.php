@@ -53,8 +53,6 @@
 	<div class = "trackcontainer">
 	<?php
 
-		$userGetID = '251f563068e8636da4092490d6aeac94';
-
 				$req = $bdd->prepare('SELECT track.IDtrack, track.name, user.firstname, user.lastname, user.IDuser FROM `wdidy-track` track,`wdidy-user` user 
 											   WHERE user.IDuser = ?
 											   AND track.IDuser = user.IDuser

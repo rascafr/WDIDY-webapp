@@ -4,4 +4,8 @@ RewriteEngine on
 #api/TYPE/PHPFILE
 #api/request/TYPE/PHPFILE.php
 RewriteRule api/([a-z]+)/([a-z_]+)$ /francoisle\.fr/wdidy/api/request/$1/$2\.php
+#RewriteRule /francoisle\.fr/wdidy/profile /francoisle\.fr/wdidy/profile/user-profile.php
 
+
+#404 error
+ErrorDocument 404 "<img src=404.jpg>"
