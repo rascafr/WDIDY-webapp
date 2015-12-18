@@ -19,9 +19,9 @@ define("PATH", "/home/sites/francoisle.fr/public_html/wdidy/");
  * - friend_id : l'identifiant de l'ami l'utilisateur concerné
  */
 
-//$_POST['api_id'] = '47856230';
-//$_POST['user_id'] = '251f563068e8636da4092490d6aeac94';
-//$_POST['friend_id'] = 'a98640811bd2d60205a1346b0f6c886c';
+$_POST['api_id'] = '47856230';
+$_POST['user_id'] = '251f563068e8636da4092490d6aeac94';
+$_POST['friend_id'] = 'a98640811bd2d60205a1346b0f6c886c';
 
 // Paramètres POST
 if (isset($_POST['api_id']) AND isset($_POST['user_id']) AND isset($_POST['friend_id'])) {
@@ -48,6 +48,7 @@ if (isset($_POST['api_id']) AND isset($_POST['user_id']) AND isset($_POST['frien
             $json_array['IDfriend'] = $rec['IDfriend'];
             $json_array['text'] = $rec['text'];
             $json_array['date'] = $rec['date'];
+            $json_array['timestamp'] = strtotime($rec['date']);
 
             array_push($json_data, $json_array);  // push values into final array
         }

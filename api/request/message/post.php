@@ -51,6 +51,7 @@ if (isset($_POST['api_id']) AND isset($_POST['user_id']) AND isset($_POST['frien
             $json_array['IDfriend'] = $rec['IDfriend'];
             $json_array['text'] = $rec['text'];
             $json_array['date'] = $rec['date'];
+            $json_array['timestamp'] = strtotime($rec['date']);
 
             array_push($json_data, $json_array);  // push values into final array
         }
