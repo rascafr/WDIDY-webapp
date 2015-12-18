@@ -37,7 +37,7 @@ function loginUserAPI ($api_id, $email, $password) {
         if (count($data) != 1) {
             $done = 1;
         } else {
-            $cause = 'Utilisateur inexistant ou profil non activé.'.$_SERVER["DOCUMENT_ROOT"];;
+            $cause = 'Utilisateur inexistant ou profil non activé.';
         }
 
     } else {
