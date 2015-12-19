@@ -25,6 +25,7 @@
 
     $isConnect = -1; // par défaut on suppose que la connexion n'a pas eu lieu
     include("include/sql.php");
+    require_once("include/mail.php");
 
     // Session - déjà connecté
     if (isset($_SESSION['IDuser']) AND $_SESSION['IDuser'] != '') {
@@ -142,14 +143,16 @@
 
             // Le lien d'activation est composé du login(adresse mail) et de la clé(key)
             $message =
-                "Welcome to WDIDY,\n".
-                "to activate your account, click on the link below or copy/paste the url in your favorite browser\n\n".
-                "http://217.199.187.59/francoisle.fr/wdidy/activate=" . $key . "\n\n".
-                "---------------\n".
-                "This is an automatically generated email, please do not reply.\n\nThe WDIDY Team";
+                "<html><head></head><body><b>Welcome to WDIDY</b><br>&nbsp;<br>".
+                "To activate your account, click on the link below or copy/paste the url in your favorite browser<br>&nbsp;<br>".
+                "<a href=\"http://217.199.187.59/francoisle.fr/wdidy/activate=".$key."\">http://217.199.187.59/francoisle.fr/wdidy/activate=".$key."</a><br>&nbsp;<br><hr>".
+                "<i>This is an automatically generated email, please do not reply.</i><br>&nbsp;<br>".
+                "<b>The WDIDY Team</b>".
+                "</body></head></html>";
 
+            sendRegistrationMail($email, $sujet, $message);
 
-            mail($destinataire, $sujet, $message, $entete); // Envoi du mail
+            //mail($destinataire, $sujet, $message, $entete); // Envoi du mail
 
             echo "<script> swal({
 										title:'Welcome :) !',

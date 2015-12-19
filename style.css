@@ -51,6 +51,10 @@ div.name{
 	color: white;
 }
 
+div.name:hover{
+	opacity: 0.9;
+}
+
 div.center{
 	position: absolute;
 	top: 13px;
