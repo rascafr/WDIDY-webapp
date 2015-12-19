@@ -6,6 +6,8 @@ RewriteEngine on
 RewriteRule api/([a-z]+)/([a-z_]+)$ /francoisle\.fr/wdidy/api/request/$1/$2\.php
 #RewriteRule /francoisle\.fr/wdidy/profile /francoisle\.fr/wdidy/profile/user-profile.php
 
+# Profile activation
+RewriteRule activate=([a-z_0-9]+)$ /francoisle\.fr/wdidy/activation\.php?uid=$1
 
 #404 error
 ErrorDocument 404 "<img src=404.jpg>"

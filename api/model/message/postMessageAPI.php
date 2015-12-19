@@ -30,16 +30,22 @@ function postMessageAPI ($api_id, $user_id, $friend_id, $text) {
         // Search for a valid user
         if (checkUserKey($user_id) == 1 AND checkUserKey($friend_id) == 1) {
 
+            // Get true server date
+            date_default_timezone_set('Europe/Paris');
+            $date = new DateTime();
+            $timestamp = $date->getTimestamp();
+            $messDate = date('Y-m-d H:i:s', $timestamp);
+
             // Insert message between user and his friend
             $req = $bdd->prepare("
                         INSERT INTO `wdidy-messages`(`IDsender`, `IDfriend`, `text`, `date`)
-                        VALUES (?,?,?,NOW())
+                        VALUES (?,?,?,?)
             ");
             $req->execute(array(
                 $user_id,
                 $friend_id,
-                $text
-                // TODO true datetime (with correct timestamp)
+                $text,
+                $messDate
             ));
             $req->closeCursor();
 

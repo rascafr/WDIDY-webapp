@@ -116,12 +116,14 @@
             $date = new DateTime();
             $timestamp = $date->getTimestamp();
 
-
             $logday = date('Y-m-d H:i:s', $timestamp);
 
             $key = hash('md5', $timestamp . $email);
 
-            $req = $bdd->prepare('INSERT INTO `wdidy-user`(IDuser,email,firstname,lastname,country,city,password,logday) VALUES(:IDuser,:email,:firstname,:lastname,:country,:city,:password,:logday)');
+            $req = $bdd->prepare('
+                          INSERT INTO `wdidy-user`(IDuser,email,firstname,lastname,country,city,password,logday)
+                          VALUES(:IDuser,:email,:firstname,:lastname,:country,:city,:password,:logday)
+                          ');
             $req->execute(array(
                 'IDuser' => $key,
                 'email' => $email,
@@ -139,15 +141,12 @@
             $entete = "From: basedonney@wdidy.com";
 
             // Le lien d'activation est composé du login(adresse mail) et de la clé(key)
-            $message = "Welcome to WDIDY,
-						 
-						to activate your account, click on the link below or copy/paste the url in your favorite browser
-						 
-						http://217.199.187.59/francoisle.fr/wdidy/activation.php?log=" . urlencode($email) . "&key=" . urlencode($key) . "
-						 
-						 
-						---------------
-						This is an automatically generated email, please do not reply.";
+            $message =
+                "Welcome to WDIDY,\n".
+                "to activate your account, click on the link below or copy/paste the url in your favorite browser\n\n".
+                "http://217.199.187.59/francoisle.fr/wdidy/activate=" . $key . "\n\n".
+                "---------------\n".
+                "This is an automatically generated email, please do not reply.\n\nThe WDIDY Team";
 
 
             mail($destinataire, $sujet, $message, $entete); // Envoi du mail
