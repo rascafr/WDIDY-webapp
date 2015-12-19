@@ -27,14 +27,31 @@ function listFriendsAPI ($api_id, $user_id) {
         if (checkUserKey($user_id) == 1) {
 
             // Search for all user's friends with accepted request
+            // The current user could be the sender (IDsender = IDuser) or the friend that accepted a request from buddy (IDfriend = IDuser)
+            // We check all the friends the user has REQUESTED (asker) → IDuser = IDsender
             $req = $bdd->prepare("
                         SELECT friend.IDfriend,friend.date,user.firstname,user.lastname,user.city
                         FROM `wdidy-friends` friend, `wdidy-user` user
                         WHERE (friend.IDsender = ? AND user.IDuser = friend.IDfriend) AND friend.accepted = 1
                         ORDER BY friend.date DESC");
             $req->execute(array($user_id));
-            $data = $req->fetchAll();
+            $asUser = $req->fetchAll();
             $req->closeCursor();
+
+            // Then we check all the users's friend request by another buddies (receiver) → IDuser = IDfriend
+            // IDsender as IDfriend cause we need to get information with same name for the two arrays
+            $req = $bdd->prepare("
+                        SELECT friend.IDsender AS IDfriend,friend.date,user.firstname,user.lastname,user.city
+                        FROM `wdidy-friends` friend, `wdidy-user` user
+                        WHERE (friend.IDfriend = ? AND user.IDuser = friend.IDsender) AND friend.accepted = 1
+                        ORDER BY friend.date DESC");
+            $req->execute(array($user_id));
+            $asFriend = $req->fetchAll();
+            $req->closeCursor();
+
+            // Finally, concats the two data arrays
+            $data = array_merge($asUser, $asFriend);
+
             $done = 1;
 
         } else {
