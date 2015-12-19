@@ -6,6 +6,11 @@ if (!(isset($_SESSION['IDuser']) AND $_SESSION['IDuser'] != '')) {
     header('Location: ../index.php');
     exit();
 }
+
+// Definitions / access
+$api_id = '47856230';
+$user_id = $_SESSION['IDuser'];
+
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +65,67 @@ $date = utf8_encode(strftime('%A %e %B %Y', strtotime($date)));
 ?>
 
 <div class='title'>> Profile</div>
+
+<!-- TODO absolute → relative -->
+<div class="search_friend">
+    <input type="text" class="search_input" id="in_search_friend" placeholder="Recherchez des personnes ..." oninput="startUserResearch()">
+</div>
+<div class="search_result" id="js_fields_friend_search" style="display: none;">
+    &nbsp;
+</div>
+
+<script>
+    // Lister for input text search event
+    function startUserResearch() {
+
+        var needle = document.getElementById('in_search_friend').value;
+
+        // Si on a du texte, on lance la recherche
+        if (needle.length > 0) {
+
+            // On affiche la box
+            document.getElementById('js_fields_friend_search').style.display="block";
+
+            if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest();} else { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+            xmlhttp.open("POST", "../api/request/friend/search.php", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send(
+                "api_id="+encodeURIComponent('<?=$api_id?>')+"&"+
+                "user_id="+encodeURIComponent('<?=$user_id?>')+"&"+
+                "needle="+encodeURIComponent(needle)
+            );
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                    // On récupère la réponse de l'interface PHP
+                    var html = xmlhttp.responseText;
+
+                    // On parse le JSON
+                    var jsonObject = JSON.parse(html);
+
+                    // Si pas d'erreur, on parse les résulats (sinon exception json-parser boum le navigateur)
+                    if (jsonObject['error'] == 0) {
+                        var searchResult = jsonObject['data'];
+                        var searchHtml = '';
+
+                        for (var i=0;i<searchResult.length;i++) {
+                            searchHtml += '<a href="#' + searchResult[i]['IDuser'] + '"><div class="search_single"><img src="../picts/' + searchResult[i]['imgLink'] + '" class="search_image">' +
+                                '<div class="search_text">' + searchResult[i]['firstname'] + ' ' + searchResult[i]['lastname'] + '</div></div></a>';
+                        }
+
+                        document.getElementById('js_fields_friend_search').innerHTML = searchHtml;
+                    } else {
+                        document.getElementById('js_fields_friend_search').innerHTML = 'Erreur de recherche : ' + jsonObject['cause'];
+                    }
+                }
+            };
+        } else {
+            // Sinon, on n'affiche pas la box des résultats de recherche
+            document.getElementById('js_fields_friend_search').style.display="none";
+        }
+    }
+</script>
+
 <div class="trackcontainer">
 
     <?php
