@@ -23,17 +23,17 @@
 
 function pushUser ($IDdevices, $title, $content, $intent) {
 
-    // API Key
-    define('PUSH_ANDROID_SENDER_ID', '327033001800');
-    define('PUSH_ANDROID_API_KEY', 'AIzaSyCKyxTZuMJAG0EKfRBQ04hBebLkcvW5wd0');
+        // API Key
+        define('PUSH_ANDROID_SENDER_ID', '327033001800');
+        define('PUSH_ANDROID_API_KEY', 'AIzaSyCKyxTZuMJAG0EKfRBQ04hBebLkcvW5wd0');
 
-    // Set POST variables
-    $url = 'https://android.googleapis.com/gcm/send';
+        // Set POST variables
+        $url = 'https://android.googleapis.com/gcm/send';
 
-    $fields = array(
-        'registration_ids' => $IDdevices,
-        'data' => array(
-            'title' => $title,
+        $fields = array(
+            'registration_ids' => $IDdevices,
+            'data' => array(
+                'title' => $title,
             'message' => $content,
             'intent' => $intent
         )

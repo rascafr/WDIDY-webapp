@@ -109,7 +109,7 @@ $date = utf8_encode(strftime('%A %e %B %Y', strtotime($date)));
                         var searchHtml = '';
 
                         for (var i=0;i<searchResult.length;i++) {
-                            searchHtml += '<a href="#' + searchResult[i]['IDuser'] + '"><div class="search_single"><img src="../picts/' + searchResult[i]['imgLink'] + '" class="search_image">' +
+                            searchHtml += '<a href="conversation.php?fid=' + searchResult[i]['IDuser'] + '"><div class="search_single"><img src="../picts/' + searchResult[i]['imgLink'] + '" class="search_image">' +
                                 '<div class="search_text">' + searchResult[i]['firstname'] + ' ' + searchResult[i]['lastname'] + '</div></div></a>';
                         }
 
@@ -202,6 +202,8 @@ $date = utf8_encode(strftime('%A %e %B %Y', strtotime($date)));
     </ul>
 </div>
 
+
+<!-- c'est labite de france trois m!!!!!!!!!!-->
 <!-- Si clic sur track → redirection vers Maps -->
 <!--<script type="text/javascript">
     function gototrack(id) {

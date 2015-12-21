@@ -602,6 +602,7 @@ li.case a:hover {
 	background-color: white;
 	border-style: none;
 	border-bottom: solid 2px #EC8074;
+	border-radius: 3px;
 }
 
 .search_result {
@@ -645,7 +646,7 @@ li.case a:hover {
 }
 
 .search_single:hover {
-	background-color: #f5e7df;
+	background-color: #eca297;
 }
 
 .search_image {
@@ -654,5 +655,124 @@ li.case a:hover {
 	border-radius: 16px;
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: 15px;
+	margin-right: 10px;
+}
+
+.profile_small_friend {
+	width: 26px;
+	height: 26px;
+	border-radius: 13px;
+	vertical-align: middle;
+	display: inline-block;
+	float: left;
+	margin-left: 25px;
+	margin-right: 10px;
+}
+
+.profile_small_user {
+	width: 26px;
+	height: 26px;
+	border-radius: 13px;
+	display: inline-block;
+	vertical-align: middle;
+	float: right;
+	margin-right: 25px;
+	margin-left: 10px;
+}
+
+.message_sender {
+	display: inline-block;
+	padding: 5px 15px 5px 15px;
+	background-color: #E74C3C;
+	margin-bottom: 15px;
+	color: white;
+	float: right;
+	border-radius: 3px;
+}
+
+.message_sender:hover {
+	opacity: 0.8;
+}
+
+.message_friend {
+	display: inline-block;
+	padding: 5px 15px 5px 15px;
+	background-color: #e2e2e2;
+	margin-bottom: 15px;
+	color: #0f0f0f;
+	float: left;
+	border-radius: 3px;
+}
+
+.message_friend:hover {
+	opacity: 0.8;
+}
+
+.message_container {
+	display: block;
+	clear: both;
+}
+
+.conversation_outside {
+	position: absolute;
+	left:335px;
+	top:150px;
+	width:55%;
+	height:78%;
+}
+
+.conversation_main {
+	font-family: calibri;
+	font-size: 15px;
+	color:black;
+	height: 70%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.message_in_box {
+	margin-top: 15px;
+}
+
+.message_input {
+	padding: 15px 10px 15px 10px;
+	border-top: solid 1px #bbbbbb;
+	border-right: none;
+	border-bottom: none;
+	border-left: none;
+	width: 85%;
+	display: inline-block;
+}
+
+.message_button {
+	height: 24px;
+	width: 24px;
+	background: #E74C3C;
+	display: inline-block;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 2px 2px 0px 0px #EC8074;
+}
+
+.message_button:hover {
+	background: #EC8074;
+	cursor: pointer;
+}
+
+.message_button_img {
+	height: 16px;
+	width: 16px;
+	margin-top: 4px;
+	margin-left: 3px;
+}
+
+.progress_gif {
+	margin-top: 40%;
+	margin-left: 50%;
+}
+
+textarea:focus, input:focus{
+	outline: 0;
 }
